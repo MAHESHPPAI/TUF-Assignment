@@ -1,0 +1,221 @@
+/* ═══════════════════════════════════════════════════════════════
+   CALENDAR GRID — Liquid Pill + Vertical Stagger
+   
+   Range selection uses INLINE styles on the cell itself:
+   - backgroundColor, color, borderRadius, fontWeight
+   
+   CSS handles: layout, base appearance, hover on non-pill cells
+   ═══════════════════════════════════════════════════════════════ */
+
+.gridContainer {
+  padding: 2rem 1.25rem;
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .gridContainer {
+    padding: 3rem 2.5rem;
+    max-width: 520px;
+  }
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.monthTitle {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--color-ink);
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0;
+}
+
+@media (min-width: 1024px) {
+  .monthTitle {
+    font-size: 2.25rem;
+  }
+}
+
+.yearLabel {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: var(--color-gray-400);
+  text-transform: uppercase;
+}
+
+/* ── Nav buttons ── */
+.navButtons {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.navBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gray-500);
+  transition: all 0.25s var(--ease-out-expo);
+  background: transparent;
+}
+
+.navBtn:hover {
+  color: var(--color-accent);
+  background: var(--color-accent-light);
+}
+
+.navBtn:active {
+  transform: scale(0.92);
+}
+
+.divider {
+  width: 1px;
+  height: 20px;
+  background-color: var(--color-gray-200);
+  margin: auto 0.5rem;
+}
+
+/* ── Week day labels ── */
+.weekDays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 0.5rem;
+}
+
+.weekDayLabel {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 0;
+}
+
+/* ── Overflow-hidden container for stagger animation ── */
+.daysWrapper {
+  position: relative;
+  overflow: hidden;
+  min-height: 340px;
+}
+
+/* ── Grid: ZERO horizontal gap for continuous pill ── */
+.daysGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px 0;
+}
+
+.dayCell {
+  position: relative;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--color-ink);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease,
+    border-radius 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+@media (min-width: 1024px) {
+  .dayCell {
+    height: 52px;
+  }
+}
+
+.dayCell:hover {
+  background-color: var(--color-gray-100);
+}
+
+.dayNumber {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Today state (Soft Glow Outline) ── */
+.todayCell {
+  border-color: var(--color-accent) !important;
+  box-shadow: inset 0 0 8px var(--color-accent-light);
+  border-radius: 50%;
+  color: var(--color-ink) !important;
+  font-weight: 700 !important;
+}
+
+/* ── Selection Pill (Neon Bloom) ── */
+.pillCell {
+  background-color: var(--color-accent) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+}
+
+.previewCell {
+  background-color: var(--color-accent-medium) !important;
+  color: var(--color-accent) !important;
+  font-weight: 500 !important;
+  box-shadow: none !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SELECTION BADGE
+   ═══════════════════════════════════════════════════════════════ */
+.selectionBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--color-paper-light);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xs);
+}
+
+.badgeLabel {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-gray-400);
+}
+
+.badgeDates {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  letter-spacing: -0.01em;
+}

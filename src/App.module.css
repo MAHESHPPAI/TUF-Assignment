@@ -1,0 +1,83 @@
+/* ═══════════════════════════════════════════════════════════════
+   APP LAYOUT — Split-screen: Hero | Interactive
+   ═══════════════════════════════════════════════════════════════ */
+
+.appLayout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+@media (min-width: 1024px) {
+  .appLayout {
+    flex-direction: row;
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+
+/* ── Hero (Left) ── */
+.heroSection {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+  .heroSection {
+    width: 42%;
+    height: 100%;
+  }
+}
+
+/* ── Interactive (Right) ── */
+.interactiveSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0;
+  background-color: var(--color-paper-warm);
+}
+
+@media (min-width: 1024px) {
+  .interactiveSection {
+    width: 58%;
+    height: 100%;
+    overflow-y: auto;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0;
+    background-color: var(--color-paper-warm);
+  }
+}
+
+/* ── Grid wrapper ── */
+.gridWrapper {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (min-width: 1024px) {
+  .gridWrapper {
+    flex: 1.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+  }
+}
+
+/* ── Journal wrapper ── */
+.journalWrapper {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (min-width: 1024px) {
+  .journalWrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    min-height: 100%;
+    border-left: 1px solid var(--color-gray-200);
+  }
+}

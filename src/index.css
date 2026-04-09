@@ -1,0 +1,150 @@
+/* ═══════════════════════════════════════════════════════════════
+   DESIGN SYSTEM — Alpine Calendar SOTD
+   Font: Space Grotesk (300–700)
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Base palette ── */
+  --color-ink:            #0a0a0a;
+  --color-ink-muted:      #3a3a3a;
+  --color-paper:          #f5f5f3;
+  --color-paper-light:    #ffffff;
+  --color-paper-warm:     #faf9f7;
+  --color-overlay-bg:     rgba(250, 249, 247, 0.9);
+  
+  --blend-noise:          multiply;
+  --opacity-noise:        0.05;
+
+  /* ── Accent — Electric Blue ── */
+  --color-accent:         #0047ff;
+  --color-accent-hover:   #0037cc;
+  --color-accent-light:   rgba(0, 71, 255, 0.08);
+  --color-accent-medium:  rgba(0, 71, 255, 0.15);
+
+  /* ── Neutrals ── */
+  --color-gray-100:       #f0f0ee;
+  --color-gray-200:       #e0dfdb;
+  --color-gray-300:       #c8c7c3;
+  --color-gray-400:       #9e9d99;
+  --color-gray-500:       #6b6a66;
+  --color-gray-600:       #4a4944;
+
+  /* ── Typography ── */
+  --font-display:         'Space Grotesk', system-ui, -apple-system, sans-serif;
+
+  /* ── Shadows ── */
+  --shadow-xs:            0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-sm:            0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md:            0 4px 16px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg:            0 12px 40px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+
+  /* ── Motion ── */
+  --ease-out-expo:        cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quint:    cubic-bezier(0.87, 0, 0.13, 1);
+
+  /* ── Layout ── */
+  --radius-sm:            6px;
+  --radius-md:            10px;
+  --radius-lg:            16px;
+  --radius-xl:            24px;
+  --radius-pill:          999px;
+  
+  --transition-color:     background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+html[data-theme="dark"] {
+  --color-ink:            #FFFFFF;
+  --color-ink-muted:      #E0E0E0;
+  --color-paper:          #000000; /* Pure OLED black canvas */
+  --color-paper-light:    #000000; /* Pure black component elevation */
+  --color-paper-warm:     #000000;
+  --color-overlay-bg:     rgba(0, 0, 0, 0.85);
+
+  --blend-noise:          screen;
+  --opacity-noise:        0.05;
+
+  --color-accent:         #0047FF;
+  --color-accent-hover:   #0037CC;
+  --color-accent-light:   rgba(0, 71, 255, 0.15);
+  --color-accent-medium:  rgba(0, 71, 255, 0.25);
+  --color-accent-glow:    rgba(0, 71, 255, 0.4);
+
+  --color-gray-100:       #222225;
+  --color-gray-200:       #2A2A2D;
+  --color-gray-300:       #4A4A4D;
+  --color-gray-400:       #E0E0E0; /* Light Off-White for secondary text */
+  --color-gray-500:       #E0E0E0;
+  --color-gray-600:       #FFFFFF;
+
+  --shadow-xs:            0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-sm:            0 2px 8px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.7);
+  --shadow-md:            0 4px 16px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5);
+  --shadow-lg:            0 4px 20px rgba(0, 0, 0, 0.5); /* Sophisticated diffuse shadow */
+  --shadow-neon:          0 0 10px var(--color-accent-glow);
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-display);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+  transition: var(--transition-color);
+}
+
+/* ── Subtle paper grain texture ── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── All headings use Space Grotesk ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+button {
+  all: unset;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-family: var(--font-display);
+}
+
+/* ── Scrollbar ── */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-gray-300);
+  border-radius: var(--radius-pill);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-400);
+}
+
+/* ── Selection ── */
+::selection {
+  background-color: var(--color-accent);
+  color: white;
+}

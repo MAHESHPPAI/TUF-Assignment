@@ -1,0 +1,167 @@
+/* ═══════════════════════════════════════════════════════════════
+   HERO — Full-bleed parallax with geometric anchors
+   ═══════════════════════════════════════════════════════════════ */
+
+.heroContainer {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  min-height: 400px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: var(--color-paper);
+  cursor: crosshair;
+}
+
+@media (min-width: 1024px) {
+  .heroContainer {
+    height: 100vh;
+    min-height: auto;
+  }
+}
+
+/* ── Image wrapper — sits slightly oversized for parallax travel ── */
+.imageWrapper {
+  position: absolute;
+  top: -3%;
+  left: -3%;
+  width: 106%;
+  height: 106%;
+  z-index: 0;
+  will-change: transform;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+
+/* ── Dark gradient for text readability ── */
+.gradientOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 20, 0.15) 0%,
+    rgba(10, 10, 20, 0.3) 40%,
+    rgba(10, 10, 20, 0.65) 80%,
+    rgba(10, 10, 20, 0.85) 100%
+  );
+  pointer-events: none;
+}
+
+.geometricOverlay {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(to right, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+}
+
+.svgClip {
+  width: 100%;
+  height: 140px;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .svgClip {
+    height: 200px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .svgClip {
+    height: 280px;
+  }
+}
+
+/* ── Typography overlay ── */
+.typographyOverlay {
+  position: absolute;
+  bottom: 12%;
+  right: 8%;
+  z-index: 3;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0;
+}
+
+.year {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.08em;
+  line-height: 1;
+  display: block;
+}
+
+.month {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .year {
+    font-size: 2rem;
+  }
+  .month {
+    font-size: 4.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .year {
+    font-size: 2.5rem;
+  }
+  .month {
+    font-size: 6rem;
+    letter-spacing: -0.06em;
+  }
+}
+
+/* ── Editorial grid lines ── */
+.gridLines {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.gridLineV {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 33.333%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.gridLineH {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 66.666%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+}
