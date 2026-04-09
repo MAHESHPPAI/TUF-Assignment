@@ -31,9 +31,9 @@
 
 ## Overview
 
-Alpine Calendar is a high-fidelity, interactive React calendar component inspired by the aesthetic of a physical wall calendar. It was built for the **TUF Frontend Engineering Challenge** and goes beyond the baseline requirements to deliver an editorial-grade, sensorial interface.
+Calendar is a high-fidelity, interactive React calendar component inspired by the aesthetic of a physical wall calendar. It was built for the **TUF Frontend Engineering Challenge** and goes beyond the baseline requirements to deliver an editorial-grade, sensorial interface.
 
-The design philosophy draws from **Swiss Modernist typography** and **cinematic landscape photography**, treating the calendar as a piece of visual storytelling — each month has its own curated color palette, hero image, and ambient mood that transitions fluidly as the user navigates.
+The design philosophy draws from **Modernist typography** and **cinematic landscape photography**, treating the calendar as a piece of visual storytelling — each month has its own curated color palette, hero image, and ambient mood that transitions fluidly as the user navigates.
 
 ---
 
