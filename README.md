@@ -41,8 +41,8 @@ The design philosophy draws from **Swiss Modernist typography** and **cinematic 
 
 | Resource | Link |
 |----------|------|
-| 🌐 Live Demo | _[Add your deployed URL here]_ |
-| 🎬 Video Walkthrough | _[Add your Loom/YouTube link here]_ |
+| 🌐 Live Demo | https://tuf-assignment1234.netlify.app/ |
+| 🎬 Video Walkthrough | https://youtu.be/I-XSDmNZjcc |
 
 ---
 
