@@ -194,7 +194,7 @@ Given the component's focused scope, React's built-in `createContext` + `useCont
 ```bash
 # 1. Clone the repository
 git clone https://github.com/<your-username>/alpine-calendar.git
-cd alpine-calendar
+cd TUF-Assignment
 
 # 2. Install dependencies
 npm install
